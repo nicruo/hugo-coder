@@ -18,7 +18,7 @@
         {{ range first (add $maxItems 1) $series.Pages }}
           {{ if ne .RelPermalink $currentPageUrl }}
             <li>
-              <a href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a>
+              <a {{ if .Params.externalLink }} target="_blank" {{ end }} href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}{{ if .Params.externalLink }} &#8599;{{ end }}</a>
             </li>
           {{ end }}
         {{ end }}
